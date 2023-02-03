@@ -26,7 +26,6 @@ const getArticles = async (document: Document) => {
           article.getElementsByTagName("header").item(0)?.getElementsByTagName("a").item(0)?.getAttribute("href")!
         )
       );
-      break;
     }
   }
   const articlesWithContents = await Promise.all(articlePromises);
