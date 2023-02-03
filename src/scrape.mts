@@ -1,5 +1,9 @@
 import { JSDOM } from "jsdom";
 
+export interface IArticleContent {
+  url: string;
+  content: string;
+}
 export const scrapeTodaysSpiegelHeadlines = async () => {
   var text = await (await fetch("https://www.spiegel.de/schlagzeilen/")).text();
   var document = new JSDOM(text).window.document;
@@ -26,16 +30,24 @@ const getArticles = async (document: Document) => {
           article.getElementsByTagName("header").item(0)?.getElementsByTagName("a").item(0)?.getAttribute("href")!
         )
       );
+      break;
     }
   }
   const articlesWithContents = await Promise.all(articlePromises);
-  return { articlesWithContents, date: todaysDate.getTime() };
+  console.log(todaysDate.getFullYear() + "-" + todaysDate.getMonth() + "-" + todaysDate.getDate());
+  const dateStr =
+    todaysDate.getFullYear() +
+    "" +
+    ("0" + (todaysDate.getMonth() + 1)).slice(-2) +
+    "" +
+    ("0" + todaysDate.getDate()).slice(-2);
+  console.log(dateStr);
+  return {
+    articlesWithContents,
+    date: dateStr,
+  };
 };
 
-interface IArticleContent {
-  url: string;
-  content: string;
-}
 const getArticleContent = async (articleUrl: string): Promise<IArticleContent> => {
   console.log("---- new article ----");
   console.log(articleUrl);
