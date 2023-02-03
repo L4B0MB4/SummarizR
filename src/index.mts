@@ -36,9 +36,9 @@ const summerizeArticles = async () => {
     }
   }
   exec(
-    `ls && git add --all & git commit -m "Adding or updating ${new Date(scrapeRes.date).toDateString()} - ${
+    `git add --all & git commit -m "Adding or updating ${new Date(scrapeRes.date).toDateString()} - ${
       scrapeRes.date
-    } && git push"`,
+    } && git push https://${process.env.GITHUB_TOKEN}@github.com/L4B0MB4/SummarizR.git`,
     (error, stdout, stderr) => {
       console.log("error:" + error);
       console.log("stderr:" + stderr);
