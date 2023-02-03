@@ -33,7 +33,12 @@ const summerizeArticles = async () => {
   exec(
     `git add --all & git commit -m "Adding or updating ${new Date(scrapeRes.date).toDateString()} - ${
       scrapeRes.date
-    } && git push"`
+    } && git push"`,
+    (error, stdout, stderr) => {
+      console.log("error:" + error);
+      console.log("stderr:" + stderr);
+      console.log("stdout:" + stdout);
+    }
   );
 };
 summerizeArticles();
