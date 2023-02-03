@@ -12,9 +12,9 @@ const summerizeArticles = async () => {
   const __filename = fileURLToPath(import.meta.url);
 
   const __dirname = path.dirname(__filename); //https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/
-  /*   const api = new ChatGPTAPI({
+  const api = new ChatGPTAPI({
     apiKey: process.env.OPENAI_API_KEY,
-  }); */
+  });
 
   const scrapeRes = await scrapeTodaysSpiegelHeadlines();
   console.log("requesting tldr");
@@ -25,14 +25,13 @@ const summerizeArticles = async () => {
     const dir = `${__dirname}/../content/${scrapeRes.date}`;
     const fullArticlePath = `${dir}/${urlHash}`;
     if (!fs.existsSync(fullArticlePath)) {
-      /*   const res = await api.sendMessage(`Zusammenfassung deutsch mehr als 400 Zeichen: ${article.content}
-`); */
+      const res = await api.sendMessage(`Zusammenfassung deutsch mehr als 400 Zeichen: ${article.content}
+`);
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
       }
 
-      fs.writeFileSync(fullArticlePath, /* res.text + "\n\n\n" +  */ "summariz");
-      break;
+      fs.writeFileSync(fullArticlePath, res.text);
     }
   }
   exec(
