@@ -2,7 +2,7 @@ name: Summarize
 
 on:
   schedule:
-  - cron: "1/5 * * * *"
+  - cron: "0-59/5 * * * *"
 
 jobs:
   build:
