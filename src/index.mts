@@ -9,7 +9,6 @@ import { fileURLToPath } from "url";
 
 const summerizeArticles = async () => {
   dotenv.config();
-  console.log(process.env);
   const __filename = fileURLToPath(import.meta.url);
 
   const __dirname = path.dirname(__filename); //https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/
@@ -39,7 +38,7 @@ const summerizeArticles = async () => {
   exec(
     `git add --all & git commit -m "Adding or updating ${new Date(scrapeRes.date).toDateString()} - ${
       scrapeRes.date
-    }" && git config user.name "L4B0MB4" && git push https://${
+    }" && git config --global user.name "L4B0MB4" && git config --global user.email "L4B0MB4" && git push https://${
       process.env.GITHUB_TOKEN
     }@github.com/L4B0MB4/SummarizR.git`,
     (error, stdout, stderr) => {
