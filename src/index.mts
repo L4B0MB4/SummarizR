@@ -25,13 +25,17 @@ const summerizeArticles = async () => {
     const dir = `${__dirname}/../content/${scrapeRes.date}`;
     const fullArticlePath = `${dir}/${urlHash}`;
     if (!fs.existsSync(fullArticlePath)) {
-      const res = await api.sendMessage(`Zusammenfassung deutsch mehr als 400 Zeichen: ${article.content}
+      try {
+        const res = await api.sendMessage(`Zusammenfassung deutsch mehr als 400 Zeichen: ${article.content}
 `);
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir);
-      }
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir);
+        }
 
-      fs.writeFileSync(fullArticlePath, res.text);
+        fs.writeFileSync(fullArticlePath, res.text);
+      } catch (ex) {
+        console.error(ex);
+      }
     }
   }
   exec(
