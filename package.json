@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "tsc --project tsconfig.json"
+    "start": "tsc --project tsconfig.json && node ./dist/index.mjs"
   },
   "dependencies": {
     "chatgpt": "^4.1.0",

@@ -30,7 +30,7 @@ const getArticles = async (document: Document) => {
     }
   }
   const articlesWithContents = await Promise.all(articlePromises);
-  return articlesWithContents;
+  return { articlesWithContents, date: todaysDate.getTime() };
 };
 
 interface IArticleContent {
