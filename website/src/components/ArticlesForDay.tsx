@@ -29,6 +29,11 @@ export const ArticlesForDay = ({ setClickedDay, newsDay }: IArticlesForDayProps)
           <h4>←back</h4>
         </Centered>
       </NavbarClickable>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div>
         {articles.map((article) => {
           return (
@@ -45,6 +50,8 @@ export const ArticlesForDay = ({ setClickedDay, newsDay }: IArticlesForDayProps)
                   </DefaultPadding>
                 </Centered>
               </CardContent>
+              <br />
+              <br />
             </Clickable>
           );
         })}
