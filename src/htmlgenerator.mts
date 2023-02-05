@@ -17,7 +17,6 @@ export const htmlGeneration = (dir: string, dateStr: string) => {
   const articles: string[] = [];
   const testFolder = dir + "/../content/" + dateStr;
   fs.readdirSync(testFolder).forEach((file) => {
-    console.log(file);
     articles.push(fs.readFileSync(testFolder + "/" + file).toString());
   });
 
@@ -30,6 +29,22 @@ export const htmlGeneration = (dir: string, dateStr: string) => {
   const file = dir + "/../docs/" + dateStr + ".html";
 
   fs.writeFileSync(file, html);
+
+  const articleFile = dir + "/../docs/" + dateStr + ".json";
+
+  const articleInfos = {
+    articles: [],
+  };
+  articles.forEach((article) => {
+    try {
+      const json = JSON.parse(article) as { summary: string; originalUrl: string };
+      articleInfos.articles.push(json);
+    } catch (ex) {
+      console.error("couldnt parse json from summary");
+    }
+  });
+
+  fs.writeFileSync(articleFile, JSON.stringify(articleInfos));
 };
 
 export const htmlGenerationIndex = (dir: string) => {
