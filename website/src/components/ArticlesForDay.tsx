@@ -38,18 +38,22 @@ export const ArticlesForDay = ({ setClickedDay, newsDay }: IArticlesForDayProps)
         {articles.map((article) => {
           return (
             <Clickable key={article.originalUrl}>
-              <CardContent>
-                <Centered>
-                  <DefaultPadding>
-                    <p>
-                      <span>{article.summary}</span>
-                    </p>
-                    <p>
-                      <a href={article.originalUrl}>Hier gehts zur Quelle</a>
-                    </p>
-                  </DefaultPadding>
-                </Centered>
-              </CardContent>
+              <Centered>
+                <div style={{ width: "40%" }}>
+                  <CardContent>
+                    <Centered>
+                      <DefaultPadding>
+                        <p>
+                          <span>{article.summary}</span>
+                        </p>
+                        <p>
+                          <a href={article.originalUrl}>Hier gehts zur Quelle</a>
+                        </p>
+                      </DefaultPadding>
+                    </Centered>
+                  </CardContent>
+                </div>
+              </Centered>
               <br />
               <br />
             </Clickable>
