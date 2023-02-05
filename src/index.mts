@@ -1,6 +1,7 @@
 import { ChatGPTAPI } from "chatgpt";
 import { scrapeTodaysSpiegelHeadlines } from "./scrape.mjs";
 import { htmlGeneration, htmlGenerationIndex } from "./htmlgenerator.mjs";
+import { buildWebsite } from "./buildwebsite.mjs";
 import fs from "fs";
 import crypto from "crypto";
 import dotenv from "dotenv";
@@ -43,6 +44,7 @@ const summerizeArticles = async () => {
   }
   htmlGeneration(__dirname, scrapeRes.date);
   htmlGenerationIndex(__dirname);
+  buildWebsite(__dirname);
   exec(
     `rm -f ./.git/index.lock && git config --global user.name "L4B0MB4" && git config --global user.email "L4B0MB4" ` +
       `&&  git add --all && git commit -m "Adding or updating ${scrapeRes.date}" && git push https://L4B0MB4:${process.env.GITHUB_TOKEN}@github.com/L4B0MB4/SummarizR.git`,
