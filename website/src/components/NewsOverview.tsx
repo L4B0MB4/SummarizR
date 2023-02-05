@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getRequest } from "../utils/fetchhelper";
-import { CardContent, CardsContainer, Centered, Clickable, ClickableCard } from "../utils/styled";
+import { CardContent, CardsContainer, Centered, ClickableCard } from "../utils/styled";
 import { ArticlesForDay } from "./ArticlesForDay";
 
 export interface INewsDay {

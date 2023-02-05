@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getRequest } from "../utils/fetchhelper";
 import { CardContent, Centered, Clickable, DefaultPadding, NavbarClickable } from "../utils/styled";
 import { INewsDay } from "./NewsOverview";
@@ -21,7 +21,7 @@ export const ArticlesForDay = ({ setClickedDay, newsDay }: IArticlesForDayProps)
         setArticles(res.articles);
       }
     );
-  }, []);
+  }, [newsDay.originalName]);
   return (
     <div>
       <NavbarClickable onClick={() => setClickedDay("")}>

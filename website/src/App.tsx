@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import { NewsOverview } from "./components/NewsOverview";
 
 function App() {
