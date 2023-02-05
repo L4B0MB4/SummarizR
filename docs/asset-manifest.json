@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/SummarizR/static/css/main.e6c13ad2.css",
-    "main.js": "/SummarizR/static/js/main.67784b2f.js",
+    "main.js": "/SummarizR/static/js/main.ee8391f5.js",
     "static/js/787.71e672d5.chunk.js": "/SummarizR/static/js/787.71e672d5.chunk.js",
     "index.html": "/SummarizR/index.html",
     "main.e6c13ad2.css.map": "/SummarizR/static/css/main.e6c13ad2.css.map",
-    "main.67784b2f.js.map": "/SummarizR/static/js/main.67784b2f.js.map",
+    "main.ee8391f5.js.map": "/SummarizR/static/js/main.ee8391f5.js.map",
     "787.71e672d5.chunk.js.map": "/SummarizR/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.67784b2f.js"
+    "static/js/main.ee8391f5.js"
   ]
 }
