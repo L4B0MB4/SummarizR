@@ -39,7 +39,7 @@ export const ArticlesForDay = ({ setClickedDay, newsDay }: IArticlesForDayProps)
           return (
             <Clickable key={article.originalUrl}>
               <Centered>
-                <div style={{ width: "40%" }}>
+                <div style={{ width: "90%" }}>
                   <CardContent>
                     <Centered>
                       <DefaultPadding>

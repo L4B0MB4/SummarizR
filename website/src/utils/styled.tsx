@@ -86,7 +86,7 @@ export const ClickableCard = styled(Card)`
 export const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
