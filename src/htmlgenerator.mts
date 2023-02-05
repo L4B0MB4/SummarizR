@@ -50,4 +50,10 @@ export const htmlGenerationIndex = (dir: string) => {
   const file = dir + "/../docs/index.html";
 
   fs.writeFileSync(file, html);
+
+  const metaFile = dir + "/../docs/index.json";
+  const metaInfo = {
+    folders: files,
+  };
+  fs.writeFileSync(metaFile, JSON.stringify(metaInfo));
 };

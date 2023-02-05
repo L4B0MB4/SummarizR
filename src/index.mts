@@ -22,7 +22,7 @@ const summerizeArticles = async () => {
     const article = scrapeRes.articlesWithContents[i];
     const urlHash = crypto.createHash("sha256").update(article.url).digest("hex");
     const dir = `${__dirname}/../content/${scrapeRes.date}`;
-    const fullArticlePath = `${dir}/${urlHash}`;
+    const fullArticlePath = `${dir}/${urlHash}.json`;
     if (!fs.existsSync(fullArticlePath)) {
       try {
         console.log("requesting tldr");
@@ -31,7 +31,11 @@ const summerizeArticles = async () => {
         if (!fs.existsSync(dir)) {
           fs.mkdirSync(dir);
         }
-        fs.writeFileSync(fullArticlePath, res.text);
+        const metaInformation = {
+          summary: res.text,
+          originalUrl: article.url,
+        };
+        fs.writeFileSync(fullArticlePath, JSON.stringify(metaInformation));
       } catch (ex) {
         console.error(ex);
       }
